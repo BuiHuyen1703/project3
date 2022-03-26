@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Cửa hàng thú cưng</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+    <th:block th:replace="fragments/styles :: styles"></th:block>
+<!--     <th:block th:replace="fragments/styles :: datatable"></th:block> -->
+</head>
+<body>
+        <div class="wrapper">
+            <!--             --------------------Sidebar-------------------- -->
+            <th:block th:replace="fragments/sidebar :: sidebar"></th:block>
+            <!--             --------------------End sidebar-------------------- -->
+        </div>
+        <div class="main-panel">
+<!--             --------------------Navbar-------------------- -->
+                <th:block th:replace="fragments/navbar :: navbar"></th:block>
+<!--             --------------------End navbar-------------------- -->
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header card-header-icon" data-background-color="purple">
+                                    <i class="material-icons">assignment</i>
+                                </div>
+                                <div class="card-content">
+                                    <h4 class="card-title">Admin</h4>
+                                    <div class="toolbar">
+                                        <!--        Here you can write extra buttons/actions for the toolbar              -->
+                                    </div>
+                                    <div class="material-datatables">
+                                        <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th> Name</th>
+                                                    <th>Phone</th>
+                                                    <th>Email</th>
+                                                    <th>Address</th>
+                                                    <th>Role</th>
+                                                    <th class="disabled-sorting text-right">Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th> Name</th>
+                                                    <th>Phone</th>
+                                                    <th>Email</th>
+                                                    <th>Address</th>
+                                                    <th>Role</th>
+                                                    <th class="text-right">Actions</th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <tr th:each="ad : ${list}">
+                                            		<td th:text="${ad.name_ad}"></td>
+                                            		<td th:text="${ad.phone_ad}"></td>
+                                            		<td th:text="${ad.email_ad}"></td>
+                                            		<td th:text="${ad.address_ad}"></td>
+                                            		<td th:text="${ad.role}"></td>
+                                            	</tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- end content-->
+                            </div>
+                            <!--  end card  -->
+                        </div>
+                        <!-- end col-md-12 -->
+                    </div>
+                    <!-- end row -->
+                </div>
+            </div>
+            <th:block th:replace="fragments/footer :: footer"></th:block>
+        </div>
+    </div>
+</body>
+<th:block th:replace="fragments/script :: script"></th:block>
+
+</html>

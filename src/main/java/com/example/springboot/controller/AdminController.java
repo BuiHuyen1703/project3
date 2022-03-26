@@ -9,12 +9,12 @@ import com.example.springboot.service.AdminService;
 @Controller
 public class AdminController {
 	@Autowired AdminService adminService;
-	@GetMapping("/")
 
+	@GetMapping("/")
 	public String viewHomePage(Model model) {
 //		List<Admin> listAdmin =adminService.getAllAdmin();
 		model.addAttribute("list",adminService.getAllAdmin());
-		return"index";
+		return"admin/index";
 	}
 
 
